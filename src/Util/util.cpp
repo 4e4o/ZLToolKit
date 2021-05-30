@@ -320,7 +320,7 @@ int vasprintf(char **strp, const char *fmt, va_list ap) {
 
 #endif //WIN32
 
-
+/*
 static inline uint64_t getCurrentMicrosecondOrigin() {
 #if !defined(_WIN32)
     struct timeval tv;
@@ -382,6 +382,15 @@ uint64_t getCurrentMicrosecond(bool system_time) {
         return s_currentMicrosecond_system.load(memory_order_acquire);
     }
     return s_currentMicrosecond.load(memory_order_acquire);
+}
+*/
+
+uint64_t getCurrentMillisecond() {
+    return  std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+}
+
+uint64_t getCurrentMicrosecond() {
+    return  std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 }
 
 string getTimeStr(const char *fmt, time_t time) {
