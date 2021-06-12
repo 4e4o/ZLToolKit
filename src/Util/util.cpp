@@ -175,25 +175,25 @@ string exeName() {
 
 // string转小写
 std::string &strToLower(std::string &str) {
-    transform(str.begin(), str.end(), str.begin(), towlower);
+    transform(str.begin(), str.end(), str.begin(), [](unsigned char c) { return std::tolower(c); });
     return str;
 }
 
 // string转大写
 std::string &strToUpper(std::string &str) {
-    transform(str.begin(), str.end(), str.begin(), towupper);
+    transform(str.begin(), str.end(), str.begin(), [](unsigned char c) { return std::toupper(c); });
     return str;
 }
 
 // string转小写
 std::string strToLower(std::string &&str) {
-    transform(str.begin(), str.end(), str.begin(), towlower);
+    transform(str.begin(), str.end(), str.begin(), [](unsigned char c) { return std::tolower(c); });
     return std::move(str);
 }
 
 // string转大写
 std::string strToUpper(std::string &&str) {
-    transform(str.begin(), str.end(), str.begin(), towupper);
+    transform(str.begin(), str.end(), str.begin(), [](unsigned char c) { return std::toupper(c); });
     return std::move(str);
 }
 
