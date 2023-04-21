@@ -18,6 +18,7 @@
 #include <functional>
 #include <unordered_map>
 #include <thread>
+#include <stdexcept>
 #include "function_traits.h"
 #include "onceToken.h"
 using namespace std;

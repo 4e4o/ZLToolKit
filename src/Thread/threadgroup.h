@@ -16,6 +16,7 @@
 #include <thread>
 #include <vector>
 #include <unordered_map>
+#include <stdexcept>
 using namespace std;
 
 namespace toolkit {
